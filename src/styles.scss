@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;800&display=swap');
+
+$family-sans-serif: 'Open Sans', sans-serif;
+$progress-value-background-color: #ce902c;
+$progress-bar-background-color: #e5ded2;
+
+@import "../node_modules/bulma/bulma.sass";
