@@ -1,0 +1,60 @@
+@import "variables";
+
+:host {
+  margin: 1rem;
+}
+
+.question-number {
+  color: $color-bone;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9125rem;
+  text-align: center;
+  margin-bottom: 0.25rem;
+  font-weight: 800;
+}
+
+.meta {
+  color: $color-bone;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9125rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.question,
+.answer {
+  background-color: $color-bone;
+}
+
+.answers {
+  .answer {
+    display: flex;
+    align-items: center;
+    border: none;
+    font-size: 1rem;
+    width: 100%;
+
+    app-answer-letter-tag {
+      margin-right: 1rem;
+    }
+  }
+
+  .answer:not(:last-child) {
+    margin-bottom: 0.9175rem;
+  }
+
+  .is-correct {
+    background-color: #087339;
+    color: white;
+    font-weight: 600;
+  }
+
+  .is-wrong {
+    background-color: #ca485b;
+    color: white;
+    font-weight: 600;
+  }
+}

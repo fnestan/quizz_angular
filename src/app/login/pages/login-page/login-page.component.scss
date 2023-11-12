@@ -1,0 +1,52 @@
+@import "variables";
+
+main {
+  background-color: $color-jet;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 1rem;
+
+  h1 {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    color: $color-bone;
+    font-size: 2rem;
+
+    svg {
+      fill: $color-bone;
+    }
+  }
+}
+
+form {
+  .label {
+    font-weight: 600;
+    color: $color-bone;
+  }
+
+  input {
+    background-color: $color-bone;
+
+    &::placeholder {
+      color: $color-jet;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+
+    button[type="reset"] {
+      background-color: #C2DACE;
+      color: $color-jet;
+      border: none;
+    }
+
+    button[type="submit"] {
+      background-color: #087E8B;
+      color: white;
+      border: none;
+    }
+  }
+}
