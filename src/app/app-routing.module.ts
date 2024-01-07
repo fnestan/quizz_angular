@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'jouer/:gameId',
     loadComponent: () => import('./game/pages/game-page/game-page.component').then(component => component.GamePageComponent)
   },
   {
@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'connexion',
     loadComponent: () => import('./login/pages/login-page/login-page.component').then(component => component.LoginPageComponent)
+  },
+  {
+    path: 'creation-partie',
+    loadComponent: () => import('./game/pages/create-game-page/create-game-page.component').then(component => component.CreateGamePageComponent)
   }
 ];
 
