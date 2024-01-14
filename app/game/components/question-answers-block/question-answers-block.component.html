@@ -1,0 +1,29 @@
+<ng-container *ngIf="question?.question">
+  <p class="question-number">Question 1/10</p>
+  <progress class="progress is-small mb-6" [value]="questionCountdown" [max]="question?.time">{{ questionCountdown }}%</progress>
+  <div class="meta mb-1">
+    <p class="category">{{ question?.question?.theme?.label }}</p>
+  </div>
+  <div class="box question">
+    <p class="has-text-centered has-text-weight-semibold">{{ question?.question?.label }}</p>
+  </div>
+  <div class="answers columns is-multiline" *ngIf="question?.question?.answers">
+    <div class="column is-full-mobile is-half-desktop" *ngFor="let answer of question?.question?.answers; index as i">
+      <button class="box answer"
+              (click)="answerQuestion(answer.id)"
+              [ngClass]="{
+                'is-correct': hasAnswered && answer.id === correctAnswer?.id,
+                'is-wrong': hasAnswered && answer.id === wrongAnswer?.id
+              }"
+              type="button">
+        <app-answer-letter-tag [letter]="letters[i]"></app-answer-letter-tag>
+        <p class="answer_label">{{ answer.label }}</p>
+      </button>
+    </div>
+    <div class="column is-full-mobile is-full-desktop">
+      <button class="box answer skip mt-6" type="button">
+        <p class="answer_label">Passer</p>
+      </button>
+    </div>
+  </div>
+</ng-container>

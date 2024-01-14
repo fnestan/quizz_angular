@@ -1,0 +1,42 @@
+<main>
+  <form (ngSubmit)="createGame()">
+    <div class="mode field">
+      <label class="label">Mode</label>
+      <div class="control" *ngFor="let mode of modes">
+        <label class="radio">
+          <input [formControl]="modeFormControl" type="radio" name="mode" [value]="mode.id">
+          {{ mode.label }}
+        </label>
+      </div>
+    </div>
+    <div class="field mt-3" *ngIf="modeFormControl.value">
+      <label class="label" for="type">Type</label>
+      <div class="control">
+        <div class="select">
+          <select id="type" [formControl]="typeFormControl">
+            <option *ngFor="let type of typesOfSelectedMode" [value]="type.id">{{ type.label }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <ng-container *ngIf="typeFormControl.value">
+      <div class="field" *ngFor="let parameter of parametersOfSelectedType">
+        <label class="label" [for]="'parameter-' + parameter.code">{{ parameter.label }}</label>
+        <div class="control">
+          <div class="select">
+            <select [id]="'parameter-' + parameter.code" [formControl]="getGameParameterFormControl(parameter.code)">
+              <option *ngFor="let answer of parameter.possibleResponse" [value]="answer">{{ answer }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <div class="field" *ngIf="modeFormControl.value && typeFormControl.value && gameParametersFormGroup.valid">
+      <label class="label" for="player">Votre nom</label>
+      <div class="control">
+        <input id="player" class="input" type="text" [formControl]="playerFormControl">
+      </div>
+    </div>
+    <button class="button mt-5" type="submit">Créer la partie</button>
+  </form>
+</main>

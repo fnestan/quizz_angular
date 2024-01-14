@@ -1,0 +1,96 @@
+@import "variables";
+
+:host {
+  margin: 1rem;
+}
+
+.question-number {
+  color: $color-bone;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9125rem;
+  text-align: center;
+  margin-bottom: 0.25rem;
+  font-weight: 800;
+}
+
+.meta {
+  color: $color-bone;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9125rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.question,
+.answer {
+  background-color: $color-bone;
+}
+
+.answers {
+  .answer {
+    display: flex;
+    align-items: center;
+    border: none;
+    font-size: 1rem;
+    width: 100%;
+
+    app-answer-letter-tag {
+      margin-right: 1rem;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 .125em rgba(255, 255, 255, 0.25);
+    }
+
+    &:hover:not(.is-correct, .is-wrong), &:focus:not(.is-correct, .is-wrong) {
+      cursor: pointer;
+      background: #ede8df;
+    }
+
+    &.is-correct:hover, &.is-correct:focus {
+      cursor: pointer;
+      background: #2f9c61;
+    }
+
+    &.is-wrong:hover, &.is-wrong:focus {
+      cursor: pointer;
+      background: #e36476;
+    }
+
+    &.skip:hover, &.skip:focus {
+      background-color: $color-bone;
+      color: $color-jet;
+    }
+  }
+
+  .skip {
+    border: 2px solid $color-bone;
+    background: transparent;
+    color: $color-bone;
+    display: flex;
+    justify-content: center;
+  }
+
+  .answer:not(:last-child) {
+    margin-bottom: 0.9175rem;
+  }
+
+  .is-correct {
+    background-color: #178248;
+    color: white;
+    font-weight: 600;
+  }
+
+  .is-wrong {
+    background-color: #ca485b;
+    color: white;
+    font-weight: 600;
+  }
+
+  .aaa {
+    background-color: $color-bone;
+  }
+}

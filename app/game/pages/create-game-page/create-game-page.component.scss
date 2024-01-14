@@ -1,0 +1,12 @@
+@import "variables";
+
+main {
+  min-height: 100vh;
+  background-color: $color-jet;
+  padding: 1rem;
+}
+
+:not(.mode) label {
+  font-weight: 600;
+  color: $color-bone;
+}
